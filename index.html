@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+
+    <div class="div-container">
+        <div class="homePage">
+            <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+                <div class="row align-items-center g-lg-5 py-5">
+                    <div class="col-lg-7 text-center text-lg-start">
+                        <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Quiz Game</h1>
+                        <p class="col-lg-10 fs-4">Welcome to the quiz game! Get ready to challenge your knowledge and
+                            have a blast with our exciting quiz game. Let's dive in and discover together.</p>
+                    </div>
+                    <div class="col-md-10 mx-auto col-lg-5">
+                        <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="firstName" placeholder="First Name"
+                                    title="Please enter characters and spaces only" required>
+                                <label for="firstName">First Name</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="lastName" placeholder="Last Name"
+                                    title="Please enter characters and spaces only" required>
+                                <label for="lastName">Last Name</label>
+                            </div>
+                            <button id="play-button" class="w-100 btn btn-lg btn-primary" type="submit"
+                                disabled>Play</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="questions">
+            <div class="px-4 pt-5 my-5 text-center">
+                <h1 class="question_Number display-4 fw-bold text-body-emphasis">Question 1</h1>
+                <div class="col-lg-12 mx-auto my-5">
+                    <p class="question lead mb-4">Question statement</p>
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                        <form class="">
+                            <ul class="mb-3 list-group text-start">
+                                <li class="list-group-item">
+                                    <input class="form-check-input me-1" type="radio" name="Answer" value=""
+                                        id="firstRadio">
+                                    <label class="form-check-label stretched-link" for="firstRadio">Answer 1</label>
+                                </li>
+                                <li class="list-group-item">
+                                    <input class="form-check-input me-1" type="radio" name="Answer" value=""
+                                        id="secondRadio">
+                                    <label class="form-check-label stretched-link" for="secondRadio">Answer 2</label>
+                                </li>
+                                <li class="list-group-item">
+                                    <input class="form-check-input me-1" type="radio" name="Answer" value=""
+                                        id="thirdRadio">
+                                    <label class="form-check-label stretched-link" for="thirdRadio">Answer 3</label>
+                                </li>
+                                <li class="list-group-item">
+                                    <input class="form-check-input me-1" type="radio" name="Answer" value=""
+                                        id="fourthRadio">
+                                    <label class="form-check-label stretched-link" for="fourthRadio">Answer 4</label>
+                                </li>
+                            </ul>
+                            <button id="next-button" type="submit"
+                                class="btn btn-outline-primary btn-lg px-4">Next</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="points">
+            <div class="px-4 pt-5 my-5 text-center">
+                <h1 class="display-4 fw-bold text-body-emphasis">Your score</h1>
+                <div class="col-lg-12 mx-auto my-5">
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Points</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Arthur</td>
+                                    <td>10</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button id="play-again-button" type="button" class="btn btn-primary btn-lg px-4">Play again</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
