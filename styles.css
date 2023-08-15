@@ -4,3 +4,9 @@ body{
     align-items: center;
     height: 100vh;
 }
+
+.disabled{
+    background-color: gray !important;
+    border-color: rgb(0, 0, 0) !important;
+    color: white !important;
+}

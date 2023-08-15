@@ -37,12 +37,13 @@ const quizData = [
     }
 ];
 
-var qNumber = 0;
-var points = 0;
-var firstNameContent = '';
+let qNumber = 0;
+let points = 0;
+let firstNameContent = '';
 
 $(document).ready(function () {
     $(".points, .questions").hide();
+    $('#play-button').addClass('disabled');
 });
 
 
@@ -54,6 +55,13 @@ function checkInput() {
     const validLastName = /^[a-zA-Z\s]+$/.test(lastNameContent);
 
     const bothFieldsValid = validFirstName && validLastName;
+
+    if(bothFieldsValid){
+        $('#play-button').removeClass('disabled');
+    }
+    else{
+        $('#play-button').addClass('disabled');
+    }
 
 
     $('#play-button').prop('disabled', !bothFieldsValid);
@@ -71,15 +79,16 @@ $(document).on('click', '#play-button', function (event) {
 $(document).on('click', '#next-button', function (event) {
     event.preventDefault();
     temp = qNumber;
-    qNumber += 1;
+    qNumber++;
 
     checkAnswer(temp);
     showQuestions(qNumber);
 });
 
 function showQuestions(n) {
-    if (n == quizData.length) {
+    if (n === quizData.length) {
         showPoints();
+        return;
     }
     else if (n == quizData.length - 1) {
         $("#next-button").text("Submit");
@@ -98,12 +107,28 @@ function showQuestions(n) {
     $("#thirdRadio").val(quizData[n].choices[2]);
     $("#fourthRadio").val(quizData[n].choices[3]);
 
+    $('.mainForm')[0].reset();
+    $("#next-button").addClass('disabled');
+    $("#next-button").prop('disabled', true);
+
 }
+
+$('.mainForm').on('change', 'input[type="radio"]', function() {
+    const selectedRadio = $('.mainForm').find('input[type="radio"]:checked');
+
+    if (selectedRadio.length > 0) {
+        $("#next-button").removeClass('disabled');
+        $("#next-button").prop('disabled', false);
+    } else {
+        $("#next-button").addClass('disabled');
+        $("#next-button").prop('disabled', true);
+    }
+});
 
 function checkAnswer(n) {
     const selectedAnswer = $("input[name='Answer']:checked").val();
 
-    var correct = quizData[n].choices[quizData[n].correctAnswer]
+    let correct = quizData[n].choices[quizData[n].correctAnswer]
     if (selectedAnswer === correct) {
         points += quizData[n].points;
     }
