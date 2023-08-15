@@ -79,7 +79,7 @@ $(document).on('click', '#play-button', function (event) {
 $(document).on('click', '#next-button', function (event) {
     event.preventDefault();
     temp = qNumber;
-    qNumber ++;
+    qNumber++;
 
     checkAnswer(temp);
     showQuestions(qNumber);
